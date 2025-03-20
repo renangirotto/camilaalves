@@ -1,0 +1,11 @@
+body {
+  font-family: "Plus Jakarta Sans Variable", sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--color-dark-text);
+}
+
+a,
+button {
+  color: var(--color-dark-text);
+}

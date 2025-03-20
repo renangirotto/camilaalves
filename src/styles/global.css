@@ -1,0 +1,25 @@
+html {
+  color-scheme: dark;
+}
+
+body {
+  container-name: main-container;
+  container-type: inline-size;
+  min-height: 100dvh;
+  padding-inline: 16px;
+  background: var(--color-dark-primary-100);
+  transition: margin-inline 0.25s ease-in-out;
+  overflow-x: hidden;
+
+  &:has(#dialog-menu-mobile[open]) {
+    max-height: 100dvh;
+    margin-inline: -240px 240px;
+    overflow: hidden;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
