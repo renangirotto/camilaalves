@@ -7,7 +7,14 @@ body {
   container-type: inline-size;
   min-height: 100dvh;
   padding-inline: 16px;
-  background: var(--color-dark-primary-100);
+  background-color: var(--color-dark-primary-100);
+  background-image: linear-gradient(
+      to right,
+      var(--color-dark-line-1) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, var(--color-dark-line-1) 1px, transparent 1px);
+  background-size: 75px 75px;
   transition: margin-inline 0.25s ease-in-out;
   overflow-x: hidden;
 
@@ -20,6 +27,6 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1216px;
   margin-inline: auto;
 }
