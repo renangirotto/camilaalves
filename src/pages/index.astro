@@ -1,7 +1,18 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import GridSkills from "../components/GridSkills.astro";
+import WindowBox from "../components/WindowBox.astro";
+
+import dataSkills from "../data/skills.json";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+
+const skillsOnlyText = [
+  dataSkills.tecnicas,
+  dataSkills.estrategicas,
+  dataSkills.analiticas,
+  dataSkills.soft,
+];
 ---
 
 <!doctype html>
@@ -11,7 +22,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body>
     <main>
-      <section class="hero">
+      <section class="hero section-grid-bg">
         <div class="container">
           <p class="hero-sub-title text-pixel">
             UX/UI Designer | Product Designer
@@ -21,6 +32,44 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
               >experiências</span
             > intuitivas e impactantes.
           </h1>
+        </div>
+      </section>
+      <section class="skills section-container section-grid-bg">
+        <div class="container">
+          <h2 class="section-title text-pixel">Habilidades</h2>
+          <GridSkills>
+            {
+              skillsOnlyText.map((skill) => {
+                return (
+                  <WindowBox title={skill.title}>
+                    <ul>
+                      {skill.items.map((item) => {
+                        return (
+                          <li>
+                            <strong>{item.strong}</strong>
+                            {item.text}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </WindowBox>
+                );
+              })
+            }
+            <WindowBox title={dataSkills.ferramentas.title}>
+              <ul class="skills-tools">
+                {
+                  dataSkills.ferramentas.tools.map((item) => {
+                    return (
+                      <li>
+                        <img src={`/svg/logo-${item}.svg`} />
+                      </li>
+                    );
+                  })
+                }
+              </ul>
+            </WindowBox>
+          </GridSkills>
         </div>
       </section>
     </main>
@@ -70,6 +119,59 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
     &:not(:last-child) {
       margin-block-end: 24px;
+    }
+  }
+
+  .section-container {
+    padding-block: 80px;
+
+    @container main-container (width >= 1024px) {
+      padding-block: 120px;
+    }
+  }
+
+  .section-title {
+    font-size: 1.75rem;
+    font-weight: 300;
+    color: var(--_section-title-color, var(--color-white));
+
+    @container main-container (width >= 1024px) {
+      font-size: 3.25rem;
+    }
+
+    &:not(:last-child) {
+      margin-block-end: 40px;
+
+      @container main-container (width >= 1024px) {
+        margin-block-end: 52px;
+      }
+    }
+  }
+
+  .skills {
+    --_bg-line-color: var(--color-dark-line-2);
+    --_section-title-color: var(--color-dark-primary-100);
+
+    background-color: var(--color-dark-secondary-100);
+
+    ul:not(.skills-tools) {
+      padding-inline-start: 24px;
+    }
+  }
+
+  .skills-tools {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 22px;
+    padding-inline-start: 0;
+
+    img {
+      display: block;
+      width: 32px;
+      height: 32px;
     }
   }
 </style>
