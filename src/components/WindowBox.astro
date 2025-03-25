@@ -1,11 +1,17 @@
 <div class="window-box">
   <header class="window-header">
-    <span class="min"></span>
-    <span class="square"></span>
-    <span class="close"></span>
+    {Astro.props.windowTitle && <p>{Astro.props.windowTitle}</p>}
+    <div class="window-controls">
+      <span class="min"></span>
+      <span class="square"></span>
+      <span class="close"></span>
+    </div>
   </header>
   <div class="window-content">
-    <h3 class="window-title text-pixel">{Astro.props.title}</h3>
+    <h3 class="window-title text-pixel">
+      <slot name="icon" />
+      {Astro.props.title}
+    </h3>
     <slot />
   </div>
 </div>
@@ -23,14 +29,22 @@
     padding-inline: 24px;
   }
 
-  .window-header {
+  .window-controls {
     display: flex;
     align-items: flex-end;
-    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  .window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
     gap: 12px;
     padding-block: 12px;
     padding-inline: 24px;
     border-block-end: 3px solid #f3fdfe;
+    line-height: 1;
+    color: var(--color-white);
     background: var(--color-dark-third-100);
 
     .min {
@@ -70,6 +84,18 @@
 
     &:not(:last-child) {
       margin-block-end: 24px;
+    }
+
+    &:has(img) {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      img {
+        min-width: 32px;
+        max-width: 32px;
+        height: 32px;
+      }
     }
   }
 </style>

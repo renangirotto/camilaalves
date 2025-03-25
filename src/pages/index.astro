@@ -8,6 +8,7 @@ import dataSkills from "../data/skills.json";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import GridProjects from "../components/GridProjects.astro";
 import CardProject from "../components/CardProject.astro";
+import Footer from "../components/Footer.astro";
 
 const skillsTextFirstColumn = [dataSkills.tecnicas, dataSkills.estrategicas];
 
@@ -143,6 +144,7 @@ const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
         </div>
       </section>
     </main>
+    <Footer showLargeContent={true} />
   </body>
 </html>
 
