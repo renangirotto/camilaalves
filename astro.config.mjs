@@ -5,7 +5,8 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://renangirotto.github.io",
+  base: "camilaalves",
   integrations: [mdx(), sitemap()],
   vite: {
     resolve: {
