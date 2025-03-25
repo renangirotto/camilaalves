@@ -45,5 +45,14 @@
     "tools": [
       "figma", "photoshop", "illustrator", "lightroom", "xd", "html", "css", "js"
     ]
+  },
+  "idiomas": {
+    "id": "idiomas",
+    "title": "Idiomas",
+    "languages": [
+      { "flag": "br", "text": "Português - Nativo" },
+      { "flag": "us", "text": "Inglês - Avançado" },
+      { "flag": "mx", "text": "Espanhol - Básico" }
+    ]
   }
 }

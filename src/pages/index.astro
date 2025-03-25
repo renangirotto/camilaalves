@@ -7,12 +7,9 @@ import dataSkills from "../data/skills.json";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-const skillsOnlyText = [
-  dataSkills.tecnicas,
-  dataSkills.estrategicas,
-  dataSkills.analiticas,
-  dataSkills.soft,
-];
+const skillsTextFirstColumn = [dataSkills.tecnicas, dataSkills.estrategicas];
+
+const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
 ---
 
 <!doctype html>
@@ -22,7 +19,7 @@ const skillsOnlyText = [
   </head>
   <body>
     <main>
-      <section class="hero section-grid-bg">
+      <section class="hero">
         <div class="container">
           <p class="hero-sub-title text-pixel">
             UX/UI Designer | Product Designer
@@ -38,37 +35,77 @@ const skillsOnlyText = [
         <div class="container">
           <h2 class="section-title text-pixel">Habilidades</h2>
           <GridSkills>
-            {
-              skillsOnlyText.map((skill) => {
-                return (
-                  <WindowBox title={skill.title}>
-                    <ul>
-                      {skill.items.map((item) => {
-                        return (
-                          <li>
-                            <strong>{item.strong}</strong>
-                            {item.text}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </WindowBox>
-                );
-              })
-            }
-            <WindowBox title={dataSkills.ferramentas.title}>
-              <ul class="skills-tools">
-                {
-                  dataSkills.ferramentas.tools.map((item) => {
-                    return (
-                      <li>
-                        <img src={`/camilaalves/svg/logo-${item}.svg`} />
-                      </li>
-                    );
-                  })
-                }
-              </ul>
-            </WindowBox>
+            <div class="skills-group">
+              {
+                skillsTextFirstColumn.map((skill) => {
+                  return (
+                    <WindowBox title={skill.title}>
+                      <ul>
+                        {skill.items.map((item) => {
+                          return (
+                            <li>
+                              <strong>{item.strong}</strong>
+                              {item.text}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </WindowBox>
+                  );
+                })
+              }
+            </div>
+            <div class="skills-group">
+              {
+                skillsTextSecondColumn.map((skill) => {
+                  return (
+                    <WindowBox title={skill.title}>
+                      <ul>
+                        {skill.items.map((item) => {
+                          return (
+                            <li>
+                              <strong>{item.strong}</strong>
+                              {item.text}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </WindowBox>
+                  );
+                })
+              }
+            </div>
+            <div class="skills-group">
+              <WindowBox title={dataSkills.ferramentas.title}>
+                <ul class="skills-tools">
+                  {
+                    dataSkills.ferramentas.tools.map((item) => {
+                      return (
+                        <li>
+                          <img src={`/camilaalves/svg/logo-${item}.svg`} />
+                        </li>
+                      );
+                    })
+                  }
+                </ul>
+              </WindowBox>
+              <WindowBox title={dataSkills.idiomas.title}>
+                <ul class="skills-languages">
+                  {
+                    dataSkills.idiomas.languages.map((item) => {
+                      return (
+                        <li>
+                          <img
+                            src={`/camilaalves/images/flag-${item.flag}.webp`}
+                          />
+                          {item.text}
+                        </li>
+                      );
+                    })
+                  }
+                </ul>
+              </WindowBox>
+            </div>
           </GridSkills>
         </div>
       </section>
@@ -154,8 +191,38 @@ const skillsOnlyText = [
 
     background-color: var(--color-dark-secondary-100);
 
-    ul:not(.skills-tools) {
+    ul:not(.skills-tools):not(.skills-languages) {
       padding-inline-start: 24px;
+    }
+  }
+
+  .skills-group {
+    > * {
+      &:not(:last-child) {
+        margin-block-end: 24px;
+
+        @container main-container (width >= 1024px) {
+          margin-block-end: 12px;
+        }
+      }
+    }
+  }
+
+  .skills-languages {
+    li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      &:not(:last-child) {
+        margin-block-end: 16px;
+      }
+
+      img {
+        min-width: 24px;
+        max-width: 24px;
+        height: 16px;
+      }
     }
   }
 
