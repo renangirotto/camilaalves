@@ -6,6 +6,8 @@ import WindowBox from "../components/WindowBox.astro";
 import dataSkills from "../data/skills.json";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import GridProjects from "../components/GridProjects.astro";
+import CardProject from "../components/CardProject.astro";
 
 const skillsTextFirstColumn = [dataSkills.tecnicas, dataSkills.estrategicas];
 
@@ -29,6 +31,37 @@ const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
               >experiências</span
             > intuitivas e impactantes.
           </h1>
+        </div>
+      </section>
+      <section class="projects section-container">
+        <div class="container">
+          <h2 class="section-title text-pixel">Meu trabalho</h2>
+          <GridProjects>
+            <CardProject
+              title="Projeto 1"
+              area="UX/UI Design"
+              image="https://placehold.co/388x354"
+              link="/projeto-1"
+            />
+            <CardProject
+              title="Projeto 1"
+              area="UX/UI Design"
+              image="https://placehold.co/388x354"
+              link="/projeto-1"
+            />
+            <CardProject
+              title="Projeto 1"
+              area="UX/UI Design"
+              image="https://placehold.co/388x354"
+              link="/projeto-1"
+            />
+            <CardProject
+              title="Projeto 1"
+              area="UX/UI Design"
+              image="https://placehold.co/388x354"
+              link="/projeto-1"
+            />
+          </GridProjects>
         </div>
       </section>
       <section class="skills section-container section-grid-bg">
