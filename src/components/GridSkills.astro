@@ -1,0 +1,26 @@
+<div class="grid-skills">
+  <slot />
+</div>
+
+<style>
+  .grid-skills {
+    @container main-container (width >= 768px) {
+      column-count: 2;
+      column-gap: 24px;
+    }
+
+    @container main-container (width >= 1024px) {
+      column-count: 3;
+    }
+
+    > * {
+      @container main-container (width >= 768px) {
+        break-inside: avoid;
+      }
+
+      &:not(:last-child) {
+        margin-block-end: 24px;
+      }
+    }
+  }
+</style>
