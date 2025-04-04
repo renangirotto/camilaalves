@@ -28,6 +28,7 @@ body {
 
   &:has(#dialog-menu-mobile[open]) {
     margin-inline: 240px -240px;
+    overflow-x: hidden;
   }
 }
 
