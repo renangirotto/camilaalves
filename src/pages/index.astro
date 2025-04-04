@@ -1,16 +1,17 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import CardProject from "../components/CardProject.astro";
-import ContainerText from "../components/ContainerText.astro";
-import FloatingIcons from "../components/FloatingIcons.astro";
-import Footer from "../components/Footer.astro";
-import GridProjects from "../components/GridProjects.astro";
-import GridSkills from "../components/GridSkills.astro";
-import WindowBox from "../components/WindowBox.astro";
+import BaseHead from "@/components/BaseHead.astro";
+import CardProject from "@/components/CardProject.astro";
+import ContainerText from "@/components/ContainerText.astro";
+import FloatingIcons from "@/components/FloatingIcons.astro";
+import Footer from "@/components/Footer.astro";
+import GridProjects from "@/components/GridProjects.astro";
+import GridSkills from "@/components/GridSkills.astro";
+import Header from "@/components/Header.astro";
+import WindowBox from "@/components/WindowBox.astro";
 
-import dataSkills from "../data/skills.json";
+import dataSkills from "@/data/skills.json";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 
 const skillsTextFirstColumn = [dataSkills.tecnicas, dataSkills.estrategicas];
 
@@ -23,6 +24,7 @@ const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
   <body>
+    <Header />
     <main>
       <section class="hero">
         <div class="container">
@@ -36,7 +38,7 @@ const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
           </h1>
         </div>
       </section>
-      <section class="projects section-container">
+      <section class="projects section-container" id="meu-trabalho">
         <div class="container">
           <h2 class="section-title text-pixel">Meu trabalho</h2>
           <GridProjects>
@@ -162,18 +164,16 @@ const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
               <p class="text-window">
                 Tenho um caso sério com as artes: a música é minha parceira
                 fiel, tocar guitarra é a minha terapia, e a fotografia é onde
-                consigo capturar o mundo do jeito que vejo. E, claro, ter alta
-                resolução para depois dar aquele toque vintage nas minhas fotos,
-                as deixando granuladas e com exposição baixa que eu amo!
+                consigo capturar o mundo do jeito que vejo, sempre com um toque
+                vintage.
               </p>
               <p class="text-window">
                 A moda é outra paixão, uma forma de colocar minha criatividade
                 para jogo todos os dias (mesmo quando é sobre escolher um look
                 confortável). Também sou fã de momentos como devorar livros em
                 cafeterias superfaturadas ou assistir a todos os filmes que
-                estão em cartaz. Ah, e recentemente descobri o pilates e quem
-                diria que esticar (sofrer) e respirar fundo poderia ser tão bom
-                para o corpo e a mente?
+                estão em cartaz. Ah, e recentemente descobri o pilates que tem
+                me desafiado de uma forma que me deixa renovada.
               </p>
               <p class="text-window">
                 Explorar um mundo de possibilidades é o que me mantém inspirada
