@@ -64,13 +64,7 @@ import { ROUTES } from "@/consts";
   const links = dialog?.querySelectorAll("a");
 
   links?.forEach((link) => {
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-
-      setTimeout(() => {
-        window.location.hash = link.getAttribute("href") || "";
-      }, 500);
-
+    link.addEventListener("click", () => {
       (dialog as HTMLDialogElement)?.close();
     });
   });

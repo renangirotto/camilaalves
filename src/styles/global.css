@@ -1,10 +1,5 @@
 html {
   color-scheme: dark;
-
-  &:has(#dialog-menu-mobile[open]) {
-    max-height: 100dvh;
-    overflow-x: hidden;
-  }
 }
 
 html,
@@ -29,7 +24,6 @@ body {
 
   &:has(#dialog-menu-mobile[open]) {
     max-height: 100dvh;
-    margin-inline: 240px -240px;
     overflow-x: hidden;
   }
 }
