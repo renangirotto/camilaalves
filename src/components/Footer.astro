@@ -2,7 +2,10 @@
 import WindowBox from "./WindowBox.astro";
 ---
 
-<footer class="footer section-grid-bg">
+<footer
+  class="footer section-grid-bg"
+  data-variant={Astro.props.variant || null}
+>
   {
     Astro.props.showLargeContent && (
       <div class="container content-large">
@@ -67,6 +70,16 @@ import WindowBox from "./WindowBox.astro";
     --_bg-line-color: var(--color-dark-line-2);
 
     background-color: var(--color-dark-grey-100);
+
+    &[data-variant="dark"] {
+      --_bg-line-color: var(--color-dark-line-1);
+
+      background-color: var(--color-dark-primary-100);
+
+      .content-small {
+        color: var(--color-white);
+      }
+    }
   }
 
   .link {

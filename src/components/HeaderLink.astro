@@ -3,10 +3,17 @@ const { href, class: className, ...props } = Astro.props;
 const pathname = Astro.url.pathname.replace(import.meta.env.BASE_URL, "");
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === "/" + (subpath?.[0] || "");
+
+let hrefTarger = href;
+
+// Verifica se href é um anchor e ajusta o valor
+if (href.startsWith("#")) {
+  hrefTarger = `/camilaalves/${href}`;
+}
 ---
 
 <a
-  href={href}
+  href={hrefTarger}
   class:list={[
     className,
     { active: isActive, highlight: Astro.props.highlight },

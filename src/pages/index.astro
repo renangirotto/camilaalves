@@ -1,4 +1,6 @@
 ---
+import { getCollection } from "astro:content";
+
 import BaseHead from "@/components/BaseHead.astro";
 import CardProject from "@/components/CardProject.astro";
 import ContainerText from "@/components/ContainerText.astro";
@@ -16,6 +18,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@/consts";
 const skillsTextFirstColumn = [dataSkills.tecnicas, dataSkills.estrategicas];
 
 const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <!doctype html>
@@ -42,30 +48,16 @@ const skillsTextSecondColumn = [dataSkills.analiticas, dataSkills.soft];
         <div class="container">
           <h2 class="section-title text-pixel">Meu trabalho</h2>
           <GridProjects>
-            <CardProject
-              title="Projeto 1"
-              area="UX/UI Design"
-              image="https://placehold.co/388x354"
-              link="/projeto-1"
-            />
-            <CardProject
-              title="Projeto 1"
-              area="UX/UI Design"
-              image="https://placehold.co/388x354"
-              link="/projeto-1"
-            />
-            <CardProject
-              title="Projeto 1"
-              area="UX/UI Design"
-              image="https://placehold.co/388x354"
-              link="/projeto-1"
-            />
-            <CardProject
-              title="Projeto 1"
-              area="UX/UI Design"
-              image="https://placehold.co/388x354"
-              link="/projeto-1"
-            />
+            {
+              posts.map((post) => (
+                <CardProject
+                  title={post.data.title}
+                  area={post.data.area}
+                  image={post.data.heroImage}
+                  link={`/camilaalves/blog/${post.id}/`}
+                />
+              ))
+            }
           </GridProjects>
         </div>
       </section>
