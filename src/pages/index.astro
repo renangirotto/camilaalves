@@ -38,9 +38,8 @@ const posts = (await getCollection("blog")).sort(
             UX/UI Designer | Product Designer
           </p>
           <h1 class="hero-title">
-            Olá! Sou a <span>Camila</span>, e transformo ideias em <br /><span
-              >experiências</span
-            > intuitivas e impactantes.
+            Olá! Sou a <span>Camila</span> e design é minha ferramenta para criar
+            <span>experiências</span> que conectam pessoas e negócios.
           </h1>
         </div>
       </section>
@@ -59,6 +58,44 @@ const posts = (await getCollection("blog")).sort(
               ))
             }
           </GridProjects>
+        </div>
+      </section>
+      <section class="more section-container">
+        <div class="container">
+          <ContainerText>
+            <WindowBox
+              slot="window-element"
+              title="Minha jornada"
+              variant="dark"
+            >
+              <p class="text-window">
+                Sou <strong
+                  >pós-graduada em User Experience Design pela PUCRS</strong
+                > e acumulo
+                <strong>10 anos de experiência na área de tecnologia</strong>.
+                Com formação em
+                <strong>Análise e Desenvolvimento de Sistemas</strong> e experiência
+                como desenvolvedora front-end, trago uma visão técnica que me permite
+                criar soluções intuitivas e viáveis desde o início do projeto e me
+                ajuda na comunicação com o time de tecnologia.
+              </p>
+              <p class="text-window">
+                Como Product Designer, sou apaixonada por criar experiências que
+                realmente impactem os usuários. Minhas decisões são orientadas
+                por dados, pesquisas e contexto de negócio, para garantir que os
+                produtos atendam tanto às necessidades dos usuários quanto às
+                expectativas de negócio.
+              </p>
+              <p class="text-window">
+                Atuei como Product Designer na <strong>Rappi</strong> e também trabalhei
+                com empresas como <strong
+                  >Azul Viagens, Bradesco, Alelo, Novo Nordisk, Marisa,
+                  Mercedes-Benz, Hypera Farma</strong
+                >, entre outras. Nesses projetos, liderei pesquisas, desenvolvi
+                interfaces e participei da implementação de soluções.
+              </p>
+            </WindowBox>
+          </ContainerText>
         </div>
       </section>
       <section class="skills section-container section-grid-bg">
@@ -200,6 +237,8 @@ const posts = (await getCollection("blog")).sort(
   }
 
   .hero-title {
+    max-width: 920px;
+    margin-inline: auto;
     font-weight: 700;
     font-size: 1.75rem;
     text-shadow: #ffffff25 1px 0 10px;
