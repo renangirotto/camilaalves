@@ -4,9 +4,16 @@ const { href, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === "/" + subpath?.[0];
+
+let hrefTarger = href;
+
+// Verifica se href é um anchor e ajusta o valor
+if (href.startsWith("#")) {
+  hrefTarger = `/camilaalves/${href}`;
+}
 ---
 
-<a href={href} class:list={[{ active: isActive }]} {...props}>
+<a href={hrefTarger} class:list={[{ active: isActive }]} {...props}>
   <span>
     <slot />
   </span>
